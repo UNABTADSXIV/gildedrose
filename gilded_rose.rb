@@ -156,7 +156,7 @@ class AgedBrie < Base
 
 end
 
-class ItemMapper
+class Productos
 
   attr_reader :item
 
@@ -182,7 +182,7 @@ class ItemMapper
   private
 
   def handler
-    @handler ||= MAP[item.name] || Default
+    @handler ||= PROD[item.name] || Default
   end
 
 end
