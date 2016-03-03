@@ -1,8 +1,12 @@
+
 require './item.rb'
 
 class GildedRose
 
-  def update_quality(items)
+  attr_reader :item
+
+
+ def update_quality(items)
   items.each do |item|
     if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
       if item.quality > 0
