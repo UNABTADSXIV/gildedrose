@@ -76,6 +76,22 @@ class Base
 end
 
 class Default < Base
+  private
+
+  def update_quality
+    if item.sell_in > 0
+      quality = item.quality - 1
+    else
+      quality = item.quality - 2
+    end
+
+    item.quality = quality if quality >= 0
+  end
+
+  def update_sell_in
+    item.sell_in -= 1
+  end
+
 end
 
 class Conjured < Base
