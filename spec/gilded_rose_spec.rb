@@ -60,9 +60,9 @@ describe 'GildedRose' do
       parametricTestCase("Backstage passes to a TAFKAL80ETC concert", 1, 10, 0, 13)
   end
 
-    #it 'Conjured Mana Cake Should Degrade Twice as fast as normal items before sell_in' do
-    #  parametricTestCase("Conjured Mana Cake", 1, 10, 0, 8)
-    #end
+    it 'Conjured Mana Cake Should Degrade Twice as fast as normal items before sell_in' do
+      parametricTestCase("Conjured Mana Cake", 1, 10, 0, 8)
+    end
 
     #it 'Conjured Wand item should degrade twice as fast as normal items' do
     #  parametricTestCase("Conjured Wand", 1, 10, 0, 8)
@@ -95,15 +95,17 @@ describe 'GildedRose' do
     items.push Item.new "Backstage passes to a TAFKAL80ETC concert", 15, 20
     items.push Item.new "Backstage passes to a TAFKAL80ETC concert", 10, 49
     items.push Item.new "Backstage passes to a TAFKAL80ETC concert", 5, 49
-    #this conjured item does not work properly yet
     items.push Item.new "Conjured Mana Cake", 3, 6
 
-    app = GildedRose.new
+    #this conjured item does not work properly yet
+
+
+    #app = GildedRose.new
 
     #act
-    app.update_quality items;
+    GildedRose.new(items).update_quality();
 
-     itemsOutput = []
+    itemsOutput = []
     itemsOutput.push Item.new "+5 Dexterity Vest",9,19
     itemsOutput.push Item.new "Aged Brie", 1, 1
     itemsOutput.push Item.new "Elixir of the Mongoose", 4, 6
@@ -112,8 +114,9 @@ describe 'GildedRose' do
     itemsOutput.push Item.new "Backstage passes to a TAFKAL80ETC concert", 14, 21
     itemsOutput.push Item.new "Backstage passes to a TAFKAL80ETC concert", 9, 50
     itemsOutput.push Item.new "Backstage passes to a TAFKAL80ETC concert", 4, 50
+    itemsOutput.push Item.new "Conjured Mana Cake", 2, 4
     #this conjured item does not work properly yet
-    #itemsOutput.push Item.new "Conjured Mana Cake", 2, 4
+
 
 
 
@@ -126,13 +129,13 @@ describe 'GildedRose' do
 
   end
 
-  def parametricTestCase name, initialsell_in, initialQuality,expectedsell_in, expectedQuality
+  def parametricTestCase name, initialsell_in, initialQuality, expectedsell_in, expectedQuality
     items = []
     items.push Item.new name, initialsell_in, initialQuality
 
-    app = GildedRose.new
+    #app = GildedRose.new
 
-    app.update_quality items
+    GildedRose.new(items).update_quality()
 
     items[0].name.should == name
     items[0].quality.should == expectedQuality
