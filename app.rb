@@ -13,7 +13,7 @@ items.push Item.new "Backstage passes to a TAFKAL80ETC concert", 5, 49
 #this conjured item does not work properly yet
 items.push Item.new "Conjured Mana Cake", 3, 6
 
-app = GildedRose.new
+#app = GildedRose.new
 
 days = 2
 (0..days).each {|i|
@@ -22,5 +22,5 @@ days = 2
   for item in items
     puts item
   end
-  app.updateQuality items
+  GildedRose.new(items).update_quality()
 }
