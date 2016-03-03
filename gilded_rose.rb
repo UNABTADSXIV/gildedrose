@@ -3,8 +3,7 @@ require './item.rb'
 
 class GildedRose
 
-  attr_reader :item
-
+  attr_reader :items
 
  def update_quality(items)
   items.each do |item|
@@ -54,4 +53,25 @@ class GildedRose
   end
 end
 
+end
+
+class Base
+  attr_reader :item
+
+  def initialize(item)
+    @item = item
+  end
+
+  def update
+    update_quality
+    update_sell_in
+  end
+
+  private
+
+  def update_quality
+  end
+
+  def update_sell_in
+  end
 end
