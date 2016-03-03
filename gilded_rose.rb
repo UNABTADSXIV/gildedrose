@@ -3,7 +3,6 @@ require './item.rb'
 
 class GildedRose
 
-
  def update_quality(items)
   items.each do |item|
     if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
@@ -155,5 +154,35 @@ class AgedBrie < Base
     item.sell_in -= 1
   end
 
+end
+
+class ItemMapper
+
+  attr_reader :item
+
+  PROD = {
+    'Aged Brie'                                 => AgedBrie,
+    'Sulfuras, Hand of Ragnaros'                => Sulfuras,
+    'Backstage passes to a TAFKAL80ETC concert' => Backstage,
+    'Conjured Mana Cake'                        => Conjured,
+  }
+
+  def initialize(item)
+    @item = item
+  end
+
+  def update
+    handler.new(item).update
+  end
+
+  def self.update(item)
+    new(item).update
+  end
+
+  private
+
+  def handler
+    @handler ||= MAP[item.name] || Default
+  end
 
 end
