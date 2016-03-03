@@ -138,4 +138,22 @@ class Sulfuras < Base
 end
 
 class AgedBrie < Base
+
+  private
+
+  def update_quality
+    if item.sell_in > 0
+      quality = item.quality + 1
+    else
+      quality = item.quality + 2
+    end
+
+    item.quality = quality if quality <= 50
+  end
+
+  def update_sell_in
+    item.sell_in -= 1
+  end
+
+
 end
