@@ -81,9 +81,9 @@ describe 'GildedRose' do
     end
 
     # b.
-    #it 'Conjured item with quality 1 shouldnt have a negative quality after one day' do
-    #  parametricTestCase("Conjured Wand", 1, 1, 0, 0)
-    #end
+    it 'Conjured item with quality 1 shouldnt have a negative quality after one day' do
+      parametricTestCase("Conjured Wand", 1, 1, 0, 0)
+    end
 
   it 'multiple items works successfully' do
     items = []
