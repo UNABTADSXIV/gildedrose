@@ -76,9 +76,9 @@ describe 'GildedRose' do
 
 
     # a. Items conjured hasta 0 de calidad.
-    #it 'Conjured item with quality 0 cant decrease its quality any more ' do
-    #  parametricTestCase("Conjured Wand", 1, 0, 0, 0)
-    #end
+    it 'Conjured item with quality 0 cant decrease its quality any more ' do
+      parametricTestCase("Conjured Wand", 1, 0, 0, 0)
+    end
 
     # b.
     #it 'Conjured item with quality 1 shouldnt have a negative quality after one day' do
